@@ -5,8 +5,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import SamuraiJSApp from "./App";
 
-ReactDOM.render(
-    <SamuraiJSApp/>, document.getElementById('root'));
+ReactDOM.render(<SamuraiJSApp/>, document.getElementById('root'));
 
 
 // API
