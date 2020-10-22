@@ -1,10 +1,16 @@
 
 .paginator {
-    margin: 10px;
+    margin: 10px 0;
+}
+
+.paginator > button{
+    margin-left: 10px;
 }
 .pageNumber {
     padding: 2px;
     border: 1px solid grey;
+    cursor: pointer;
+    margin-left: 5px;
 }
 
 .pageNumber.selectedPage {

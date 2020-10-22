@@ -11,7 +11,7 @@ import {
     getTotalUsersCount,
     getUsers,
     getUsersFilter
-} from '../../redux/users-selectors'
+} from '../../redux/selectors/users-selectors'
 import { useHistory } from 'react-router-dom'
 import * as queryString from "querystring";
 
@@ -63,7 +63,7 @@ export const Users: FC<PropsType> = (props) => {
         if(filter.friend !== null) query.friend = String(filter.friend)
         if(currentPage !==1 ) query.page = String(currentPage)
         history.push({
-            pathname:'/users',
+            pathname:'/developers',
             search: queryString.stringify(query)   /*`?term=${filter.term}&friend=${filter.friend}&page=${currentPage}` */
         })
     },[filter,currentPage])
