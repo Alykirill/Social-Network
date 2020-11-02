@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {Avatar, Button, Col, Layout, Menu, Row} from "antd";
 import {UserOutlined} from "@ant-design/icons";
-import {AppStateType} from "../../redux/redux-store";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCurrentUserLogin, selectIsAuth} from "../../redux/selectors/auth-selectors";
 import {logout} from "../../redux/auth-reducer";
@@ -10,7 +9,7 @@ import {logout} from "../../redux/auth-reducer";
 
 export type MapPropsType = {}
 
-export const Header: React.FC<MapPropsType>= (props) => {
+export const Header: React.FC<MapPropsType> = (props) => {
 
     const isAuth = useSelector(selectIsAuth)
     const login = useSelector(selectCurrentUserLogin)
@@ -22,7 +21,6 @@ export const Header: React.FC<MapPropsType>= (props) => {
     const {Header} = Layout;
 
 
-
     return <Header className="header">
         <Row>
             <Col span={18}>
@@ -31,20 +29,21 @@ export const Header: React.FC<MapPropsType>= (props) => {
                 </Menu>
             </Col>
 
-                {isAuth
-                    ? <><Col span={2}>
+            {isAuth
+                ? <>
+                    <Col span={2}>
                         <Avatar alt={login || ''} style={{backgroundColor: '#87d068'}} icon={<UserOutlined/>}/>
                     </Col>
                     <Col span={4}>
                         <Button onClick={logoutCallback}>Log out</Button>
                     </Col>
-                    </>
-                    : <Col span={6}>
-                        <Button>
-                            <Link to={'/login'}>Login</Link>
-                        </Button>
-                    </Col>
-                }
+                </>
+                : <Col span={6}>
+                    <Button>
+                        <Link to={'/login'}>Login</Link>
+                    </Button>
+                </Col>
+            }
 
         </Row>
     </Header>
