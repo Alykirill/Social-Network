@@ -12,6 +12,13 @@ type LoginFormOwnProps = {
     captchaUrl: string | null
 }
 
+export type LoginFormValuesType = {
+    captcha: string
+    rememberMe: boolean
+    password: string
+    email: string
+}
+
 const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnProps> & LoginFormOwnProps>
     = ({handleSubmit, error, captchaUrl}) => {
     return (
@@ -37,12 +44,7 @@ const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType, LoginFormOwnPro
 
 const LoginReduxForm = reduxForm<LoginFormValuesType, LoginFormOwnProps>({form: 'login'})(LoginForm)
 
-export type LoginFormValuesType = {
-    captcha: string
-    rememberMe: boolean
-    password: string
-    email: string
-}
+
 type LoginFormValuesTypeKeys = GetStringKeys<LoginFormValuesType>
 
 export const LoginPage: React.FC = () => {
